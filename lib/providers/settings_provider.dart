@@ -12,9 +12,7 @@ class SettingsProvider extends ChangeNotifier {
   }
 
   void toggleMode() {
-    if (EnvConfig.allLiveServicesReady) {
-      _isDemoMode = !_isDemoMode;
-      notifyListeners();
-    }
+    _isDemoMode = !_isDemoMode;
+    notifyListeners();
   }
 }

@@ -139,7 +139,7 @@ class JobProvider extends ChangeNotifier {
 
   /// Make a single call (demo or live)
   Future<CallResult> _makeCall(Provider provider, UserRequest request, int index, int seed) async {
-    if (EnvConfig.isDemoMode || !EnvConfig.hasTwilio) {
+    if (EnvConfig.isDemoMode) {
       return CampaignEngine.simulateCall(
         provider: provider,
         windowStart: request.timeWindowStart,

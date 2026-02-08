@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'providers/job_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/contact_provider.dart';
+import 'providers/location_provider.dart';
 import 'screens/home_screen.dart';
 import 'utils/theme.dart';
 
@@ -17,22 +18,24 @@ void main() async {
   });
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light,
-    ),
-  );
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+    systemNavigationBarColor: AppColors.surface,
+  ));
 
   final contactProvider = ContactProvider();
   await contactProvider.load();
+  final locationProvider = LocationProvider();
+  await locationProvider.load();
 
-  runApp(CallPilotApp(contactProvider: contactProvider));
+  runApp(CallPilotApp(contactProvider: contactProvider, locationProvider: locationProvider));
 }
 
 class CallPilotApp extends StatelessWidget {
   final ContactProvider contactProvider;
-  const CallPilotApp({super.key, required this.contactProvider});
+  final LocationProvider locationProvider;
+  const CallPilotApp({super.key, required this.contactProvider, required this.locationProvider});
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +43,13 @@ class CallPilotApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => SettingsProvider()),
         ChangeNotifierProvider.value(value: contactProvider),
+        ChangeNotifierProvider.value(value: locationProvider),
         ChangeNotifierProvider(create: (_) => JobProvider()),
       ],
       child: MaterialApp(
         title: 'CallPilot',
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.darkTheme,
+        theme: AppTheme.lightTheme,
         home: const HomeScreen(),
       ),
     );
