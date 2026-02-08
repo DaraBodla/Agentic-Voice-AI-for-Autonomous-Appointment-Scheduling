@@ -1,0 +1,22 @@
+/* FULL RESET + FULLSCREEN ROOT */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* IMPORTANT: remove Vite template centering */
+body {
+  display: block; /* NOT flex */
+  background: #0b0b12; /* optional (your dashboard already has its own bg too) */
+  color: #eaeaf2;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
