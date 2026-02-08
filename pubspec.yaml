@@ -1,0 +1,60 @@
+name: callpilot
+description: Agentic Voice AI Receptionist - Autonomously schedules appointments via parallel calls
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  provider: ^6.1.1
+  
+  # HTTP & APIs
+  http: ^1.2.0
+  dio: ^5.4.0
+  web_socket_channel: ^2.4.0
+  
+  # Environment / Config
+  flutter_dotenv: ^5.1.0
+  
+  # Google APIs
+  googleapis: ^12.0.0
+  googleapis_auth: ^1.5.0
+  google_sign_in: ^6.2.1
+  
+  # UI Components
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.5.0
+  shimmer: ^3.0.0
+  lottie: ^3.1.0
+  percent_indicator: ^4.2.3
+  flutter_svg: ^2.0.9
+  
+  # Utils
+  uuid: ^4.3.3
+  intl: ^0.19.0
+  url_launcher: ^6.2.4
+  
+  # Audio / Voice
+  audioplayers: ^6.0.0
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  
+  # Icons
+  cupertino_icons: ^1.0.6
+  lucide_icons: ^0.257.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
